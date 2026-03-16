@@ -22,9 +22,9 @@ const linkClassName = ({ isActive }) =>
 const TopNav = () => {
   return (
     <header className="topnav-glow sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
-      {/* 가운데 정렬된 최대 너비 컨테이너 – 큰 화면에서도 헤더 내용이 중앙에 모이도록 */}
+
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* 로고는 navItems와 동일한 플로우 안에서 자연스럽게 반응형으로 움직이도록 좌측에만 두고, 고정 padding 은 제거 */}
+
         <NavLink
           to="/"
           className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-wider text-zinc-100"
@@ -33,7 +33,7 @@ const TopNav = () => {
             <Sparkles className="h-4 w-4 text-violet-300" strokeWidth={1.8} />
           </span>
 
-          {/* 원본 디자인처럼 파란-보라 그라데이션 텍스트 효과 */}
+
           <span className="inline-block bg-linear-to-r from-sky-300 via-indigo-300 to-violet-400 bg-clip-text text-transparent">
             VYBE
           </span>

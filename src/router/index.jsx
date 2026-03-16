@@ -1,8 +1,8 @@
 // React Router Configuration > createBrowserRouter setup
 
 import { createBrowserRouter } from 'react-router-dom'
-import App from '../App.jsx'
-import HomePage from '../pages/HomePage.jsx'
+import App from '@/App.jsx'
+import HomePage from '@/pages/HomePage.jsx'
 
 const router = createBrowserRouter([
 
@@ -13,6 +13,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomePage />
+            },
+            {
+                path: '/restaurants',
+                element: <RestaurantsPage />
             }
         ]
     }

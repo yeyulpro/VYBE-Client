@@ -1,1 +1,0 @@
-// React Components  >  Layout Components > Left sidebar (New Chat + Recent)
