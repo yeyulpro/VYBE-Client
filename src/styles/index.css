@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:aliceblue
+}
+
+/* TopNav 상단 글로우 효과 */
+.topnav-glow {
+  position: relative;
+}
+
+.topnav-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 0%, rgba(167, 139, 250, 0.22), transparent 55%),
+              radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.16), transparent 55%);
+  opacity: 0.9;
+  mix-blend-mode: screen;
+}
+

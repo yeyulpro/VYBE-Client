@@ -1,0 +1,1 @@
+// React Components > Shared Components > VYBE logo with sparkles

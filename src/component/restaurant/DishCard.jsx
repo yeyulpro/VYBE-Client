@@ -1,0 +1,1 @@
+// React Components  >  Restaurant Components > Dish card (Dish info);Menu item card with image

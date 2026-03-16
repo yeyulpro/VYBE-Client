@@ -1,0 +1,1 @@
+// React Components  >  Restaurant Components > Restaurant card (Restaurant info);Card with image + name + rating

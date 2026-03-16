@@ -1,0 +1,1 @@
+// React Components  >  Map Components > Map sidebar (Sidebar with restaurant list);List of nearby restaurants

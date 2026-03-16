@@ -1,0 +1,1 @@
+// React Components > Special Effect Components > Gradient text (Gradient text effect);

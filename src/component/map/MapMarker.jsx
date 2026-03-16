@@ -1,0 +1,1 @@
+// React Components  >  Map Components > Map marker (Marker for a restaurant);Purple pin marker

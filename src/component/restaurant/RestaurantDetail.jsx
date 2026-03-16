@@ -1,0 +1,1 @@
+// React Components  >  Restaurant Components > Restaurant detail (Restaurant info);Detail page wrapper

@@ -1,0 +1,1 @@
+// React Components  >  Restaurant Components > Restaurant filters (Filters for restaurant list);Dropdown filters for cuisine, price range, etc.//Category filter chips (All, Japanese, etc.)

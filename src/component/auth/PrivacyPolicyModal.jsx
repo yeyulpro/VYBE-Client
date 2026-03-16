@@ -1,0 +1,1 @@
+// React Components  >  Auth Components > Privacy policy modal overlay

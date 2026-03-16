@@ -1,0 +1,1 @@
+// React Components  >  Restaurant Components > Restaurant tabs (Chat / Menu tabs)

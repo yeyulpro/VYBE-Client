@@ -1,0 +1,1 @@
+// React Components  >  Chat Components > Chat input (User message input);Text input + send button;Bottom input with sparkles icon

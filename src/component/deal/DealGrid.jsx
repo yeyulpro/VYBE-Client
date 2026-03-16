@@ -1,0 +1,1 @@
+// React Components  >  Deal Components > Deal grid (List of deals)

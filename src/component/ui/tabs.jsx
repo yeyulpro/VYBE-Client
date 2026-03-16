@@ -1,0 +1,1 @@
+// React Components > UI Primitives (Shadcn-style) > Tabs (Tabs component)
