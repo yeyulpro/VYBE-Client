@@ -7,7 +7,7 @@ const navItems = [
   { to: "/restaurants", label: "Restaurants", Icon: UtensilsCrossed },
   { to: "/deals", label: "Deals", Icon: Flame },
   { to: "/map", label: "Map", Icon: MapPin },
-  { to: "/login", label: "Login", Icon: User },
+  { to: "/auth/login", label: "Login", Icon: User },
 ];
 
 const linkClassName = ({ isActive }) =>

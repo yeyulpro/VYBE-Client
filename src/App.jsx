@@ -1,14 +1,8 @@
-//Main App component
-import MainLayout from "./components/layout/MainLayout"
+import React from "react";
+import MainLayout from "@components/layout/MainLayout";
 
-function App() {
- 
+const App = () => {
+  return <MainLayout />;
+};
 
-  return (
-    <MainLayout/>
-   
-   
-  )
-}
-
-export default App
+export default App;
