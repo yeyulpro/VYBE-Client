@@ -19,14 +19,14 @@ const MainLayout = () => {
           </aside>
         )}
 
-        <main className="relative min-w-0 flex-1 overflow-auto bg-[radial-gradient(circle_at_top,rgba(147,51,234,0.34),transparent_55%),radial-gradient(circle_at_center,rgba(14,165,233,0.18),transparent_65%),#020016]">
+        <main className=" relative min-w-0 flex-1 overflow-auto bg-[radial-gradient(circle_at_top,rgba(147,51,234,0.34),transparent_55%),radial-gradient(circle_at_center,rgba(14,165,233,0.18),transparent_65%),#020016]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(168,85,247,0.25),transparent_55%),radial-gradient(circle_at_90%_0%,rgba(56,189,248,0.18),transparent_55%)] opacity-70 mix-blend-screen" />
-          <div className="relative flex min-h-full items-center justify-center px-4 sm:px-8">
-            <div className="w-full max-w-4xl text-center">
+          <div className="relative flex min-h-full items-center justify-center px-4 sm:px-8 bg-emerald-950  ">
+            <div className="w-full max-w-6xl text-center border-bs-indigo-600 bg-gray-700 ">
               <Outlet />
             </div>
           </div>
-        </main>
+        </main> 
       </div>
     </div>
   );

@@ -5,9 +5,11 @@ import { Sparkles, Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
+
 const LoginForm = () => {
   const navigate = useNavigate();
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  
   return (
     <div className="relative mx-auto w-full max-w-md">
       {/* Outer glow */}
@@ -28,7 +30,7 @@ const LoginForm = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-1.5">
             <label
               htmlFor="email"

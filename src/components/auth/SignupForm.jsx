@@ -7,7 +7,19 @@ import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
 const SignupForm = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    fullName:"",
+    email:"",
+    password:""
+  })
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  const signupandleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+  }
+  
   return (
     <div className="relative mx-auto w-full max-w-md">
       {/* Outer glow */}
@@ -30,7 +42,7 @@ const SignupForm = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={signupandleSubmit}>
           {/* Full name */}
           <div className="space-y-1.5">
             <label
@@ -46,7 +58,8 @@ const SignupForm = () => {
                 type="text"
                 placeholder="Your full name"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
-              />
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}              />
             </div>
           </div>
 
@@ -65,7 +78,8 @@ const SignupForm = () => {
                 type="email"
                 placeholder="you@example.com"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
-              />
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}              />
             </div>
           </div>
 
@@ -84,7 +98,8 @@ const SignupForm = () => {
                 type="password"
                 placeholder="Create a password"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
-              />
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}              />
             </div>
           </div>
 

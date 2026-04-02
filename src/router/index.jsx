@@ -10,16 +10,20 @@ import LoginForm from "@/components/auth/LoginForm";
 import SignupForm from "@/components/auth/SignupForm";
 import PrivacyPolicyModal from "@/components/auth/PrivacyPolicyModal";
 import AuthLayout from "@/components/layout/AuthLayout";
+import RestaurantDetailPage from "@/pages/RestaurantDetailPage.jsx";
+import NotFoundPage from "@/pages/NotFoundPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
     children: [
       { index: true, element: <HomePage /> },
       { path: "restaurants", element: <RestaurantsPage /> },
       { path: "deals", element: <DealsPage /> },
       { path: "map", element: <MapPage /> },
+      { path: "restaurants/:id", element: <RestaurantDetailPage /> },
       {
         path: "auth",
         element: <AuthLayout />,
@@ -29,6 +33,8 @@ const router = createBrowserRouter([
           { path: "signup", element: <SignupForm /> },
         ],
       },
+      
+      { path: "*", element: <NotFoundPage /> },
     //   { path: "policy", element: <PrivacyPolicyModal /> },
     ],
   },
