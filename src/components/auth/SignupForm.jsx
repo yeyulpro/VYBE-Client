@@ -4,22 +4,35 @@ import React, { useState } from "react";
 import { Sparkles, Mail, Lock, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
+import { useSignupMutation } from "../../store/api/authApi";
 
 const SignupForm = () => {
   const navigate = useNavigate();
+  const [signup, { isLoading }] = useSignupMutation();
   const [formData, setFormData] = useState({
-    fullName:"",
-    email:"",
-    password:""
-  })
+    fullName: "",
+    email: "",
+    password: "",
+  });
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
-  const signupandleSubmit = (e) => {
+
+  const signupandleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
-  }
+    try {
+      const response = await signup({
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+      }).unwrap();
+      console.log(response);
+      navigate("/todos");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   
+  if (isLoading) {return <div>Loading...</div>;}
   return (
     <div className="relative mx-auto w-full max-w-md">
       {/* Outer glow */}
@@ -59,7 +72,10 @@ const SignupForm = () => {
                 placeholder="Your full name"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
                 value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}              />
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
+              />
             </div>
           </div>
 
@@ -79,7 +95,10 @@ const SignupForm = () => {
                 placeholder="you@example.com"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}              />
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
             </div>
           </div>
 
@@ -99,7 +118,10 @@ const SignupForm = () => {
                 placeholder="Create a password"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}              />
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+              />
             </div>
           </div>
 

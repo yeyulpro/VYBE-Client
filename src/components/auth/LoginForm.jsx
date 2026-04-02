@@ -4,12 +4,33 @@ import React, { useState } from "react";
 import { Sparkles, Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
-
+import { useLoginMutation } from "../../store/api/authApi";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
-  
+  const [login, { isLoading }] = useLoginMutation();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const loginHandleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await signup({
+        email: formData.email,
+        password: formData.password,
+      }).unwrap();
+      console.log(response);
+      navigate("/todos");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="relative mx-auto w-full max-w-md">
       {/* Outer glow */}
@@ -45,6 +66,8 @@ const LoginForm = () => {
                 type="email"
                 placeholder="you@example.com"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
           </div>
@@ -69,6 +92,8 @@ const LoginForm = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none"
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
           </div>
@@ -87,7 +112,7 @@ const LoginForm = () => {
             Don&apos;t have an account?{" "}
             <button
               type="button"
-              onClick={() => navigate('/auth/signup')}
+              onClick={() => navigate("/auth/signup")}
               className="font-medium text-violet-300 hover:text-violet-200"
             >
               Sign up
@@ -104,10 +129,12 @@ const LoginForm = () => {
             </button>
             .
           </p>
-
         </div>
       </div>
-      <PrivacyPolicyModal open={isPolicyOpen} onClose={() => setIsPolicyOpen(false)} />
+      <PrivacyPolicyModal
+        open={isPolicyOpen}
+        onClose={() => setIsPolicyOpen(false)}
+      />
     </div>
   );
 };
