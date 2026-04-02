@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Sparkles, Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
-import { useLoginMutation } from "../../store/api/authApi";
+import { useLoginMutation } from "../../store/api/authApi.js";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const LoginForm = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={loginHandleSubmit}>
           <div className="space-y-1.5">
             <label
               htmlFor="email"

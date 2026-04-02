@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { Sparkles, Mail, Lock, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
-import { useSignupMutation } from "../../store/api/authApi";
+import { useRegisterMutation } from "../../store/api/authApi.js";
 
 const SignupForm = () => {
   const navigate = useNavigate();
-  const [signup, { isLoading }] = useSignupMutation();
+  const [signup, { isLoading }] = useRegisterMutation();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -16,7 +16,7 @@ const SignupForm = () => {
   });
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
 
-  const signupandleSubmit = async (e) => {
+  const signupHandleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await signup({
@@ -55,7 +55,7 @@ const SignupForm = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-4" onSubmit={signupandleSubmit}>
+        <form className="space-y-4" onSubmit={signupHandleSubmit}>
           {/* Full name */}
           <div className="space-y-1.5">
             <label
