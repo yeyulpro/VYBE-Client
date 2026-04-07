@@ -5,12 +5,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logout } from "../slices/authSlice";
 
 export const authApi = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000", credentials:'include' }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/auth", credentials:'include' }),
     tagTypes: ["User"],
     endpoints: (builder) => ({
         login: builder.mutation({
             query: (credentials) => ({
-                url: "/auth/login",
+                url: "login",
                 method: "POST",
                 body: credentials,
             }),
@@ -27,7 +27,7 @@ export const authApi = createApi({
         }),
         register: builder.mutation({
             query: (userData) => ({
-                url: "/auth/register",
+                url: "register",
                 method: "POST",
                 body: userData,
             }),
@@ -44,7 +44,7 @@ export const authApi = createApi({
         }),
         logout: builder.mutation({
             query: () => ({
-                url: "/auth/logout",
+                url: "logout",
                 method: "POST",
             }),
             async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
@@ -59,14 +59,14 @@ export const authApi = createApi({
         }),
         getUser: builder.query({
             query: () => ({
-                url: "/auth/user",
+                url: "user",
                 method: "GET",
             }),
             providesTags: ["User"]
         }),
         // updateUser: builder.mutation({
         //     query: (userData) => ({
-        //         url: "/auth/user",
+        //         url: "user",
         //         method: "PUT",
         //         body: userData,
         //     }),
